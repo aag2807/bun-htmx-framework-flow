@@ -1,0 +1,21 @@
+{
+  "name": "bun-htmx",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "drizzle-kit": "^0.20.13"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.29.3",
+    "squirrelly": "^9.0.0"
+  },
+  "scripts": {
+    "schema": "bunx drizzle-kit generate:sqlite --schema ./src/boundaries/persistance/config/schema.ts",
+    "migrate": "bun run ./src/boundaries/persistance/config/migrate.ts",
+    "seed": "bun run ./src/boundaries/persistance/config/seed.ts"
+  }
+}
