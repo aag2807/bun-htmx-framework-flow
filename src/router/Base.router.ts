@@ -12,4 +12,14 @@ export class BaseRouter {
 	{
 		return new Response( data, {status, headers: {'Content-Type': 'text/html'}} );
 	}
+
+	public redirect( url: string, status: number = 302 ): Response
+	{
+		return new Response( null, {
+			status: status,
+			headers: {
+				'HX-Redirect': url,
+			}
+		} );
+	}
 }

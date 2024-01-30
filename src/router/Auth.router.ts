@@ -7,20 +7,34 @@ export class AuthRouter extends BaseRouter {
 
 	public mapRoutes( app: App ): void
 	{
-		app.get( AuthRouter.BASE_PATH + '/login', async ( ctx: Context ) =>
+		app.get( AuthRouter.BASE_PATH + '/login', async( ctx: Context ) =>
 		{
-			const htmlPage =  await this.renderer.renderFile("login.template.html", {});
+			const htmlPage = await this.renderer.renderFile( "login.template.html", {} );
 			return this.html( htmlPage );
 		} );
 
-		app.post( AuthRouter.BASE_PATH + '/login', ( ctx: Context ) =>
+		app.post( AuthRouter.BASE_PATH + '/login', async( ctx: Context ) =>
 		{
-			return this.json( {login: 'login'}, 200 );
-		});
+			// TODO: login logic
+			return this.redirect( '/auth/home' );
+		} );
 
-		app.get( AuthRouter.BASE_PATH + '/register', ( ctx: Context ) =>
+		app.get( AuthRouter.BASE_PATH + '/home', async( ctx: Context ) =>
 		{
-			return this.json( {register: 'login'}, 200 );
+			const htmlPage = await this.renderer.renderFile( "home.template.html", {} );
+			return this.html( htmlPage );
+		} );
+
+		app.get( AuthRouter.BASE_PATH + '/forgot-password', async( ctx: Context ) =>
+		{
+			const htmlPage = await this.renderer.renderFile( "/partials/forgot-password.partial.html", {} );
+			return this.html( htmlPage );
+		} );
+
+		app.get( AuthRouter.BASE_PATH + '/register', async( ctx: Context ) =>
+		{
+			const htmlPage = await this.renderer.renderFile( "/partials/register.partial.html", {} );
+			return this.html( htmlPage );
 		} );
 	}
 }
