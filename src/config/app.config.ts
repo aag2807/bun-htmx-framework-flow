@@ -1,7 +1,7 @@
-import type {Serve} from "bun";
+import {Serve} from "bun";
 import {Context} from "./context.ts";
 
-type ResponseFunction = (ctx?: Context) => Response;
+type ResponseFunction = ( ctx?: Context ) => Response;
 
 export type Routes = {
 	'GET': Record<string, ResponseFunction>,
@@ -10,7 +10,7 @@ export type Routes = {
 	'DELETE': Record<string, ResponseFunction>,
 }
 
-const INITIAL_ROUTE_VALUES = {
+const INITIAL_ROUTE_VALUES: Routes = {
 	'GET': {},
 	'POST': {},
 	'PUT': {},
@@ -21,18 +21,17 @@ export class App implements Serve<any> {
 	private static routes: Routes = INITIAL_ROUTE_VALUES;
 	public port: number = 3000;
 
-	public fetch( request ): any
+	public async fetch( request ): Promise<any>
 	{
 		const url = new URL( request.url );
 		const path = url.pathname;
 		const method = request.method;
-		const body = request.body;
+		const body = !!request.body ? await Bun.readableStreamToJSON( request.body ) : null;
 		const cb = App.routes[method][path];
 		const ctx = new Context( path, method, url.searchParams, body );
-
 		if( cb )
 		{
-			return cb( ctx );
+			return await cb( ctx );
 		}
 		else
 		{

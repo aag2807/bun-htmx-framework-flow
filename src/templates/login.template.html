@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	{{@include("header")/}}
+</head>
+<body hx-boost="true">
+<main class="min-h-screen min-w-screen flex flex-col md:flex-row">
+	<section class="hidden w-full h-full lg:flex min-w-[50vw] min-h-screen bg-[#5755ff] items-center justify-center">
+		<h3 class="fw-bold text-[5rem] text-white leading-[90%]	">Welcome <br/> Back !</h3>
+	</section>
+	<section class="w-full h-full flex min-w-[50vw] min-h-screen items-center justify-center">
+		<form hx-post="/auth/login" hx-ext='json-enc' class="px-5">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email" class="w-full p-4 mb-4 border-2 border-[#5755ff] rounded-md" placeholder="Email" required>
+			<label for="password">Password</label>
+			<input type="password" name="password" id="password" class="w-full p-4 mb-4 border-2 border-[#5755ff] rounded-md" placeholder="Password" required>
+			<button type="submit" class="w-full p-4 mb-4 bg-[#5755ff] text-white rounded-md">Login</button>
+
+		</form>
+	</section>
+</main>
+</body>
+</html>

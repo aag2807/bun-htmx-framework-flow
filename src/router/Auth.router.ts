@@ -7,10 +7,16 @@ export class AuthRouter extends BaseRouter {
 
 	public mapRoutes( app: App ): void
 	{
-		app.get( AuthRouter.BASE_PATH + '/login', ( ctx: Context ) =>
+		app.get( AuthRouter.BASE_PATH + '/login', async ( ctx: Context ) =>
 		{
-			return this.json( {register: 'login'}, 200 );
+			const htmlPage =  await this.renderer.renderFile("login.template.html", {});
+			return this.html( htmlPage );
 		} );
+
+		app.post( AuthRouter.BASE_PATH + '/login', ( ctx: Context ) =>
+		{
+			return this.json( {login: 'login'}, 200 );
+		});
 
 		app.get( AuthRouter.BASE_PATH + '/register', ( ctx: Context ) =>
 		{
