@@ -1,0 +1,52 @@
+<div class="flex flex-col mt-4 w-full min-w-full">
+	<h4 class="text-2xl text-[#2b2d46] font-bold">Dashboard</h4>
+	<div class="flex w-full flex-row mt-5">
+		<div class="flex flex-col w-full lg:w-[70%]" _="on load set my.innerHTML to #html-table-element.innerHTML then tell <#html-table-element/> remove yourself"></div>
+
+		<!-- FIRST ROW COLUMNS -->
+		<div class="flex flex-col">
+			<div class="flex flex-col"></div>
+			<div class="flex flex-col" id="notifications">
+
+			</div>
+		</div>
+	</div>
+
+	<div class="flex w-full p-20 bg-red-500 my-20">
+
+	</div>
+	<div class="flex w-full p-20 bg-red-500 mb-20">
+
+	</div>
+</div>
+
+<template id="html-table-element">
+	<div class="bg-white rounded-lg p-5">
+		<h5 class="text-[#2b2d46] font-bold text-lg mb-3">Project Summary</h5>
+		<table class="w-full">
+			<thead class="bg-[#f5f5fa]">
+			<tr class="gap-5 text-[#68697c] px-3 py-1">
+				<th colspan="1"  class="font-normal">Project</th>
+				<th colspan="1"  class="font-normal">Start Date</th>
+				<th colspan="1"  class="font-normal">End Date</th>
+				<th colspan="1"  class="font-normal">Team</th>
+				<th colspan="1"  class="font-normal">Work Progres</th>
+				<th colspan="1"  class="font-normal">Status</th>
+			</tr>
+			</thead>
+			<tbody >
+			<tr class="gap-5 mt-5">
+				<td colspan="1" >App Development</td>
+				<td colspan="1" >20 Aug, 2022</td>
+				<td colspan="1" >22 Aug, 2022</td>
+				<td colspan="1" >Jill</td>
+				<td colspan="1" >
+					<div class="w-full h-full items-center justify-center">
+						<span class="h-1 w-full bg-red-600 block rounded"></span>
+					</div>
+				</td>
+				<td colspan="1" >Active</td>
+			</tr>
+		</table>
+	</div>
+</template>

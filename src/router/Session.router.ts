@@ -12,5 +12,16 @@ export class SessionRouter extends BaseRouter {
 			const htmlPage = await this.renderer.renderFile( "home.template.html", {} );
 			return this.html( htmlPage );
 		} );
+
+		app.get( SessionRouter.BASE_PATH + '/logout', async( ctx: Context ) =>
+		{
+			return this.vanillaRedirect( '/auth/login' );
+		} );
+
+		app.get( SessionRouter.BASE_PATH + '/dashboard', async( ctx: Context ) =>
+		{
+			const htmlPage = await this.renderer.renderFile( "content/dashboard.content.html", {} );
+			return this.html( htmlPage );
+		} );
 	}
 }
