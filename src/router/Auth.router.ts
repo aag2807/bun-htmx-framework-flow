@@ -19,14 +19,7 @@ export class AuthRouter extends BaseRouter {
 
 		app.post( AuthRouter.BASE_PATH + '/login', async( ctx: Context ) =>
 		{
-			// TODO: login logic
-			return this.htmxRedirect( '/auth/home' );
-		} );
-
-		app.get( AuthRouter.BASE_PATH + '/home', async( ctx: Context ) =>
-		{
-			const htmlPage = await this.renderer.renderFile( "home.template.html", {} );
-			return this.html( htmlPage );
+			return this.htmxRedirect( '/session/home' );
 		} );
 
 		app.get( AuthRouter.BASE_PATH + '/forgot-password', async( ctx: Context ) =>

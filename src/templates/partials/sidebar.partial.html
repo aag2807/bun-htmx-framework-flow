@@ -3,18 +3,36 @@
 		Human-Link
 	</h4>
 
-	<ul class="flex flex-col h-full gap-10 text-[#a7a9d4]">
-		<li class="hover:text-white  transition cursor-pointer">
-			<a href="/auth/home">Dashboard</a>
+	<ul class="flex flex-col h-full gap-7 text-[#a7a9d4]" hx-target="#content">
+		<li class="hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='home' size="20px" class="mr-1"></box-icon>	<a href="/session/home">Dashboard</a>
 		</li>
-		<li>Team</li>
-		<li>Tasks</li>
-		<li>Leaves</li>
-		<li>Projects</li>
-		<li>Time Sheets</li>
-		<li>Contact</li>
-		<li>Finance</li>
-		<li>Acount</li>
-		<li class="mt-auto">Logout</li>
+		<li class="hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='user' size="20px" class="mr-1"></box-icon>	<a href="/session/team">Team</a>
+		</li>
+		<li class="hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='clipboard' size="20px" class="mr-1"></box-icon>	<a href="/session/tasks">Tasks</a>
+		</li>
+		<li class="hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='calendar' size="20px" class="mr-1"></box-icon>	<a href="/session/leaves">Leaves</a>
+		</li>
+		<li class="hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='folder' size="20px" class="mr-1"></box-icon>	<a href="/session/projects">Projects</a>
+		</li>
+		<li class="hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='time' size="20px" class="mr-1"></box-icon>	<a href="/session/time-sheets">Time Sheets</a>
+		</li>
+		<li class="hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='book-open' size="20px" class="mr-1"></box-icon>	<a href="/session/contacts">Contact</a>
+		</li>
+		<li class="hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='wallet-alt' size="20px" class="mr-1"></box-icon>	<a href="/session/finance">Finance</a>
+		</li>
+		<li class="hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='cog' size="20px" class="mr-1"></box-icon>	<a href="/session/my-account">Acount</a>
+		</li>
+		<li class="mt-auto hover:text-white items-center transition cursor-pointer flex flex-row hover:fill-white fill-[#a7a9d4]">
+			<box-icon name='exit' size="20px" class="mr-1"></box-icon>	<a href="/session/logout">Logout</a>
+		</li>
 	</ul>
 </aside>
