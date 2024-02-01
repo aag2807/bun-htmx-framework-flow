@@ -1,9 +1,11 @@
 export class Context {
 	public path;
 	public method;
-	public params;
+	public params: URLSearchParams;
 	public query;
 	public body;
+	public redirect: ( url: string, status: number ) => Response;
+
 	constructor( path, method, params, query, body = null )
 	{
 		this.path = path;

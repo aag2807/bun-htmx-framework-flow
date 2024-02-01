@@ -29,6 +29,7 @@ export class App implements Serve<any> {
 		const body = !!request.body ? await Bun.readableStreamToJSON( request.body ) : null;
 		const cb = App.routes[method][path];
 		const ctx = new Context( path, method, url.searchParams, body );
+		ctx.redirect = request.redirect
 
 		if( cb )
 		{

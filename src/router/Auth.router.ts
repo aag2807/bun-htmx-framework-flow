@@ -7,6 +7,10 @@ export class AuthRouter extends BaseRouter {
 
 	public mapRoutes( app: App ): void
 	{
+		app.get('/', async (ctx: Context) => {
+			return this.vanillaRedirect( '/auth/login' );
+		})
+
 		app.get( AuthRouter.BASE_PATH + '/login', async( ctx: Context ) =>
 		{
 			const htmlPage = await this.renderer.renderFile( "login.template.html", {} );
@@ -16,7 +20,7 @@ export class AuthRouter extends BaseRouter {
 		app.post( AuthRouter.BASE_PATH + '/login', async( ctx: Context ) =>
 		{
 			// TODO: login logic
-			return this.redirect( '/auth/home' );
+			return this.htmxRedirect( '/auth/home' );
 		} );
 
 		app.get( AuthRouter.BASE_PATH + '/home', async( ctx: Context ) =>
@@ -30,6 +34,12 @@ export class AuthRouter extends BaseRouter {
 			const htmlPage = await this.renderer.renderFile( "/partials/forgot-password.partial.html", {} );
 			return this.html( htmlPage );
 		} );
+
+		app.post( AuthRouter.BASE_PATH + '/forgot-password', async( ctx: Context ) =>
+		{
+
+			return this.htmxRedirect( '/auth/login' );
+		});
 
 		app.get( AuthRouter.BASE_PATH + '/register', async( ctx: Context ) =>
 		{

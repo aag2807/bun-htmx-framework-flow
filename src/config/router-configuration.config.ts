@@ -1,6 +1,7 @@
 import type {RouterMapper} from "./route-mapper.config.ts";
 import type {App} from "./app.config.ts";
 import chalk from 'chalk'
+import { stat } from 'fs/promises'
 
 export class RouterConfiguration {
 	constructor( private readonly app: App, private readonly routeMapper: RouterMapper )
@@ -26,6 +27,13 @@ export class RouterConfiguration {
 
 	private mapStaticRoutes()
 	{
-		// TODO: need to implement static files;
+		this.app.get( '/static', async ( ctx ) =>
+		{
+			//@ts-ignore
+			const fileName = ctx?.params.get('file') ?? '';
+			const filePath = `${import.meta.dir}/../assets/${fileName}`;
+			const file = Bun.file(filePath);
+			return new Response(file);
+		} );
 	}
 }

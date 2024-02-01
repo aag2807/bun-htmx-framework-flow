@@ -5,7 +5,15 @@
 </head>
 <body hx-boost="true">
 <main class="min-h-screen min-w-screen flex flex-col md:flex-row">
-	home
+	{{@include("sidebar")/}}
+
+	<div id="content-container" class="w-full flex-col bg-[#fafafb]">
+		{{@include("navbar")/}}
+
+		<section id="content" class="w-full flex px-5">
+			home
+		</section>
+	</div>
 </main>
 </body>
 </html>
